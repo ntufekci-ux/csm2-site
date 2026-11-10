@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contacto — CSM2 Finance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../v3.css">
+<script>document.documentElement.className='js'</script>
+</head>
+<body data-p="contact">
+<header class="hd"><div class="hi"><a href="index.html"><img src="../logo.png" alt="CSM2 Financial Solutions"></a><nav><a href="index.html">Início</a><a href="about.html">Sobre nós</a><a href="services.html">Serviços</a><a href="solutions.html">Soluções</a><a href="sectors.html">Setores</a><a href="experience.html">Experiência</a><a href="contact.html" class=on>Contacto</a></nav><div class="r"><div class="lang"><a data-l="en" href="../contact.html">EN</a><a data-l="fr" href="../fr/contact.html">FR</a><a data-l="es" href="../es/contact.html">ES</a><a data-l="pt" href="../pt/contact.html">PT</a></div><a class="btn" href="contact.html">Fale-nos do seu projeto<i></i></a><button class="burger" aria-label="Menu"></button></div></div><div class="prog"></div></header><div class="menu"><a href="index.html">Início</a><a href="about.html">Sobre nós</a><a href="services.html">Serviços</a><a href="solutions.html">Soluções</a><a href="sectors.html">Setores</a><a href="experience.html">Experiência</a><a href="contact.html" class=on>Contacto</a><div class="lang"><a data-l="en" href="../contact.html">EN</a><a data-l="fr" href="../fr/contact.html">FR</a><a data-l="es" href="../es/contact.html">ES</a><a data-l="pt" href="../pt/contact.html">PT</a></div></div>
+<section class="ph dark" style="padding-bottom:120px">
+<div class="wrap split t" style="position:relative">
+<div class="stack">
+<h1 data-r>Vamos falar do <em>seu projeto</em></h1>
+<p class="lead" data-r style="--d:1;margin-top:0">Contacte a CSM2 Finance para projetos de infraestrutura, energia, industriais e com apoio governamental que exijam estruturação financeira, preparação técnica, alinhamento do aprovisionamento ou apoio à implementação.</p>
+<p class="info" data-r style="--d:2"><b>Escritório do Dubai</b>Meydan Grandstand, 6th Floor, Meydan Road Nad Al Sheba, Dubai, UAE<br>Telefone: <a href="tel:+971503491172">(971) 50-349-11-72</a><br>E-mail: <a href="mailto:info@csm2finance.com">info@csm2finance.com</a></p>
+</div>
+<form class="form" id="f" data-r="s" style="--d:2">
+<label>Nome *<input name="name" type="text" required></label>
+<label>Empresa<input name="company" type="text"></label>
+<label>Cargo<input name="position" type="text"></label>
+<label>E-mail *<input name="email" type="email" required></label>
+<label>Telefone<input name="phone" type="tel"></label>
+<label>País do projeto<input name="country" type="text"></label>
+<label>Setor<input name="sector" type="text"></label>
+<label>CAPEX estimado<input name="capex" type="text"></label>
+<label class="full">Fase atual do projeto<input name="stage" type="text"></label>
+<label class="full">Mensagem<textarea name="message"></textarea></label>
+<button class="btn solid" type="submit">Enviar mensagem<i></i></button>
+</form>
+</div>
+</section>
+
+<section class="light">
+<div class="wrap split t">
+<div class="stack" data-r><i class="bar"></i><h3>Orientações para pedidos de informação sobre projetos</h3><p class="lead">Nos pedidos relativos a projetos, indique por favor a localização do projeto, o setor, a dimensão estimada do investimento, a fase atual de desenvolvimento, a via de aprovisionamento prevista e o objetivo de financiamento. Isto ajuda-nos a avaliar como o podemos apoiar de forma mais eficaz.</p></div>
+<div class="stack" data-r style="--d:1"><i class="bar"></i><h3>Confidencialidade e apoio especializado</h3><p class="lead">Todos os pedidos relativos a projetos são tratados de forma confidencial. Quando necessário, a CSM2 Finance pode trabalhar com parceiros especializados em finanças, engenharia, aprovisionamento, jurídico, conformidade e due diligence.</p></div>
+</div>
+</section>
+
+<footer class="ft"><div class="wrap"><div class="g"><div><img src="../logo.png" alt="CSM2 Financial Solutions"><p style="max-width:44ch">A CSM2 Finance é uma consultora integrada que apoia projetos de infraestrutura, energia e indústria através de estruturação financeira, preparação técnica, alinhamento do aprovisionamento e apoio à implementação.</p></div><div><b>Contacte-nos</b><p>CSM2 - Global Finance and Capital Advisory Group L.L.C-FZ<br>Meydan Grandstand, 6th Floor, Meydan Road Nad Al Sheba, Dubai, UAE</p><p style="margin-top:14px">Telefone: <a class="gold" href="tel:+971503491172">(971) 50-349-11-72</a><br>E-mail: <a class="gold" href="mailto:info@csm2finance.com">info@csm2finance.com</a></p></div><div><b>Menu</b><nav><a href="index.html">Início</a><a href="about.html">Sobre nós</a><a href="services.html">Serviços</a><a href="solutions.html">Soluções</a><a href="sectors.html">Setores</a><a href="experience.html">Experiência</a><a href="contact.html">Contacto</a></nav></div></div><div class="bt"><p>Copyright - CSM2 Finance</p></div></div></footer>
+
+<script src="../site.js"></script>
+<script>
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var L={name:'Name',company:'Company',position:'Position',email:'Email',phone:'Phone',country:'Project Country',sector:'Sector',capex:'Estimated CAPEX',stage:'Current Project Stage',message:'Message'},b=[];for(var k in L){var v=this.elements[k].value.trim();if(v)b.push(L[k]+': '+v)}location.href='mailto:info@csm2finance.com?subject='+encodeURIComponent('Project Enquiry')+'&body='+encodeURIComponent(b.join('\n'))});
+</script>
+</body>
+</html>
