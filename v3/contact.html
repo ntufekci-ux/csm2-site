@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — CSM2 Finance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="v3.css">
+<script>document.documentElement.className='js'</script>
+</head>
+<body data-p="contact">
+<section class="ph dark" style="padding-bottom:120px">
+<div class="wrap split t" style="position:relative">
+<div class="stack">
+<h1 data-r>Let’s Discuss <em>Your Project</em></h1>
+<p class="lead" data-r style="--d:1;margin-top:0">Contact CSM2 Finance for infrastructure, energy, industrial and government-backed projects requiring financial structuring, technical readiness, procurement alignment or implementation support.</p>
+<p class="info" data-r style="--d:2"><b>Dubai Office</b>Meydan Grandstand, 6th Floor, Meydan Road Nad Al Sheba, Dubai, UAE<br>Phone: <a href="tel:+971503491172">(971) 50-349-11-72</a><br>E-Mail: <a href="mailto:info@csm2finance.com">info@csm2finance.com</a></p>
+</div>
+<form class="form" id="f" data-r="s" style="--d:2">
+<label>Name *<input name="name" type="text" required></label>
+<label>Company<input name="company" type="text"></label>
+<label>Position<input name="position" type="text"></label>
+<label>Email *<input name="email" type="email" required></label>
+<label>Phone<input name="phone" type="tel"></label>
+<label>Project Country<input name="country" type="text"></label>
+<label>Sector<input name="sector" type="text"></label>
+<label>Estimated CAPEX<input name="capex" type="text"></label>
+<label class="full">Current Project Stage<input name="stage" type="text"></label>
+<label class="full">Message<textarea name="message"></textarea></label>
+<button class="btn solid" type="submit">Send Message<i></i></button>
+</form>
+</div>
+</section>
+
+<section class="light">
+<div class="wrap split t">
+<div class="stack" data-r><i class="bar"></i><h3>Project Enquiry Guidance</h3><p class="lead">For project enquiries, please include the project location, sector, estimated investment size, current development stage, expected procurement route and financing objective. This helps us assess how we can support you more effectively.</p></div>
+<div class="stack" data-r style="--d:1"><i class="bar"></i><h3>Confidentiality and Specialist Support</h3><p class="lead">All project enquiries are treated confidentially. Where required, CSM2 Finance may work with specialist partners in finance, engineering, procurement, legal, compliance and due diligence disciplines.</p></div>
+</div>
+</section>
+
+
+<script src="site.js"></script>
+<script>
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var L={name:'Name',company:'Company',position:'Position',email:'Email',phone:'Phone',country:'Project Country',sector:'Sector',capex:'Estimated CAPEX',stage:'Current Project Stage',message:'Message'},b=[];for(var k in L){var v=this.elements[k].value.trim();if(v)b.push(L[k]+': '+v)}location.href='mailto:info@csm2finance.com?subject='+encodeURIComponent('Project Enquiry')+'&body='+encodeURIComponent(b.join('\n'))});
+</script>
+</body>
+</html>
