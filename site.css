@@ -381,3 +381,12 @@ div.card{cursor:default}
 @media(max-width:1000px){.sgrid{grid-template-columns:1fr 1fr}.logos{grid-template-columns:repeat(4,minmax(0,1fr))}.tabs{grid-template-columns:minmax(0,1fr)}.tbl{display:flex;overflow-x:auto;border:0;gap:10px;padding-bottom:6px}.tb{padding:13px 16px;border:1px solid var(--line);white-space:nowrap;flex:none}.tb small,.tb i{display:none}.tb span{font:600 11px/1 Montserrat,sans-serif;letter-spacing:.14em;text-transform:uppercase}.tb.on{padding-left:16px;background:var(--navy);border-color:var(--navy)}.tb.on span{color:var(--gold)}.tp{min-height:0}}
 @media(max-width:640px){.hn{font-size:8.5px;padding:9px 10px;letter-spacing:.1em;white-space:normal;max-width:104px;text-align:center}.hn.l,.hn.r{width:96px;padding-inline:8px}.hc span{font-size:7.5px;letter-spacing:.12em}.hp dl{grid-template-columns:1fr}.hp{min-height:0}.ws-p{grid-template-columns:1fr;gap:24px}.stile{aspect-ratio:1}.stile h3{left:14px;right:14px;bottom:14px;font-size:17px}.sgrid{gap:8px}.tp ul{grid-template-columns:1fr}.tp .tn{font-size:110px}.facts{grid-template-columns:1fr}.facts div+div{border-left:0;border-top:1px solid var(--line)}.art p{font-size:16px}.art ol.qs li{padding-left:48px}.brief{padding:22px 20px 12px}}
 @media(prefers-reduced-motion:reduce){.phub .pk{display:none}}
+/* ===== v2.2: workstream side labels, 4 languages ===== */
+.ws-l.pre,.ws-l.post{flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center;padding:18px 16px;font:500 23px/1.18 "Cormorant Garamond",serif;letter-spacing:0;text-transform:none;opacity:.6}
+.ws-l.pre:before,.ws-l.post:before{content:"";width:30px;height:1px;background:var(--goldd);flex:none}
+.ws-l.post:before{background:var(--navy)}
+.ws-l.pre.on,.ws-l.post.on,.ws-l.pre:hover,.ws-l.post:hover{opacity:1}
+.lang{gap:9px}
+html:not([lang=en]) .hd nav a{white-space:nowrap}
+html:not([lang=en]) .hd .btn{white-space:nowrap}
+html:not([lang=en]) svg .tt{letter-spacing:.07em}
