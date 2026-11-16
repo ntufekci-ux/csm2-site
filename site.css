@@ -561,3 +561,6 @@ html:not([lang=en]) svg .tt{letter-spacing:.07em}
 /* ===== v2.9.3: EPC contractor card lead ===== */
 .card .cb{display:block;font-weight:600;color:var(--navy);margin-bottom:6px}
 .card p+p{margin-top:12px}
+/* ===== v2.9.6: tighter gap below page headers ===== */
+.ph{padding-bottom:64px}
+.ph+section{padding-top:clamp(56px,6.5vw,96px)}
