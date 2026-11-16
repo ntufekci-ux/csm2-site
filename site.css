@@ -558,3 +558,6 @@ html:not([lang=en]) svg .tt{letter-spacing:.07em}
 .covp .covt[data-g="p"]:before{border-radius:50%;background:#00457C}
 .covp .covt[data-g="t"]:before{width:7px;height:7px;background:#B8924A;transform:rotate(45deg)}
 @media(max-width:640px){.pin[data-g="t"]:before{inset:5px}.covf button{font-size:12px;padding:8px 10px}}
+/* ===== v2.9.3: EPC contractor card lead ===== */
+.card .cb{display:block;font-weight:600;color:var(--navy);margin-bottom:6px}
+.card p+p{margin-top:12px}
