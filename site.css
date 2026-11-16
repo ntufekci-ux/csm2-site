@@ -440,3 +440,43 @@ html:not([lang=en]) svg .tt{letter-spacing:.07em}
 .gl p{color:var(--onm);font-size:13.5px;line-height:1.7}
 @media(max-width:1000px){.glg{grid-template-columns:repeat(2,minmax(0,1fr))}.steps.s4{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:30px}.steps.s4:before{display:none}}
 @media(max-width:640px){.glg,.steps.s4{grid-template-columns:minmax(0,1fr)}.phase{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.phase span{padding:14px 22px 14px 18px;font-size:9px}}
+/* ===== v2.8: global ECA / IFI / DFI coverage map ===== */
+.covh{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end;margin-bottom:clamp(36px,4vw,56px)}
+.covh .head{margin-bottom:0}
+.covs{display:flex;gap:44px;padding-bottom:6px}
+.covs div{display:grid;gap:10px}
+.covs b{font:400 clamp(46px,5vw,66px)/.85 "Cormorant Garamond",serif;color:var(--navy)}
+.covs span{font:600 10.5px/1 Montserrat,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--goldd)}
+.covg{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:clamp(24px,3vw,44px);align-items:stretch}
+.covm{position:relative;align-self:center}
+.covm canvas{display:block;width:100%}
+.pins{position:absolute;inset:0}
+.pin{position:absolute;width:22px;height:22px;margin:-11px 0 0 -11px;border:0;background:none;padding:0;cursor:pointer;z-index:1}
+.pin:before{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(201,169,97,.25);transition:transform .3s var(--ease),background .3s}
+.pin:after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid var(--navy);opacity:0}
+.pin:hover:before{transform:scale(1.25)}
+.pin.on{z-index:3}.pin:hover{z-index:4}
+.pin.on:before{background:var(--navy);transform:scale(1.3);box-shadow:0 0 0 4px rgba(0,28,53,.12)}
+.pin.on:after{animation:covr 1.8s var(--ease) infinite}
+@keyframes covr{0%{opacity:.9;transform:scale(.5)}100%{opacity:0;transform:scale(2)}}
+.pin span{position:absolute;left:50%;bottom:100%;transform:translate(-50%,-4px);white-space:nowrap;font:600 9.5px/1 Montserrat,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--navy);padding:6px 8px;opacity:0;pointer-events:none;transition:opacity .2s}
+.pin:hover span,.pin:focus-visible span,.pin.on span{opacity:1}
+.covp{border:1px solid var(--line);background:var(--ivory);padding:28px 26px;display:grid;align-content:start;gap:14px;min-height:430px}
+.covp small{font:600 10.5px/1.3 Montserrat,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--goldd)}
+.covp h3{font:400 36px/1.05 "Cormorant Garamond",serif;color:var(--navy);margin:0}
+.covp ul{list-style:none;margin:0;padding:0}
+.covp li{display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;align-items:center;font-size:13.5px;line-height:1.4;color:var(--ink);padding:12px 0;border-top:1px solid var(--line)}
+.covp .lgo{background:#fff;border:1px solid var(--line);height:58px;padding:7px;display:flex;align-items:center;justify-content:center}
+.covp .lgo img{max-width:100%;max-height:100%;width:auto;height:auto;display:block}
+.covp.sw h3,.covp.sw ul{animation:covf .5s var(--ease)}
+@keyframes covf{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.covl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 32px;margin-top:clamp(32px,4vw,52px);border-top:1px solid var(--line);padding-top:30px}
+.covl b{display:block;font:600 10.5px/1.3 Montserrat,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--goldd);margin-bottom:14px}
+.covl p{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+.covl button{font:500 12.5px/1 Montserrat,sans-serif;color:var(--ink);background:none;border:1px solid var(--line);padding:8px 11px;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.covl button:hover{border-color:var(--goldd)}
+.covl button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.cov .disc{color:var(--mut);border-color:var(--line)}
+@media(max-width:1000px){.covh,.covg{grid-template-columns:1fr}.covp{min-height:0}.covl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.covl{grid-template-columns:1fr}.pin{width:16px;height:16px;margin:-8px 0 0 -8px}.pin:before{inset:4px}.pin span{display:none}.covp{padding:22px 18px}.covp h3{font-size:30px}.covs{gap:32px}}
+@media(max-width:1100px){.covg{grid-template-columns:1fr}.covp{min-height:0}}
