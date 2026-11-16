@@ -480,3 +480,54 @@ html:not([lang=en]) svg .tt{letter-spacing:.07em}
 @media(max-width:1000px){.covh,.covg{grid-template-columns:1fr}.covp{min-height:0}.covl{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.covl{grid-template-columns:1fr}.pin{width:16px;height:16px;margin:-8px 0 0 -8px}.pin:before{inset:4px}.pin span{display:none}.covp{padding:22px 18px}.covp h3{font-size:30px}.covs{gap:32px}}
 @media(max-width:1100px){.covg{grid-template-columns:1fr}.covp{min-height:0}}
+/* ===== v2.9: bankability levers + debt structure explorer ===== */
+.lvg{display:grid;grid-template-columns:300px minmax(0,1fr);gap:clamp(24px,3vw,44px);align-items:start}
+.lvl{display:grid;border-top:1px solid var(--line)}
+.lvl button{display:grid;grid-template-columns:46px minmax(0,1fr);align-items:baseline;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:18px 14px 18px 0;cursor:pointer;position:relative;transition:padding .3s var(--ease),background .3s}
+.lvl button:before{content:"";position:absolute;left:0;top:-1px;bottom:-1px;width:3px;background:var(--gold);transform:scaleY(0);transition:transform .3s var(--ease)}
+.lvl i{font:italic 400 24px/1 "Cormorant Garamond",serif;color:var(--goldd)}
+.lvl b{font:600 13.5px/1.35 Montserrat,sans-serif;color:var(--ink);letter-spacing:.01em}
+.lvl button:hover b{color:var(--navy)}
+.lvl button.on{background:var(--ivory);padding-left:16px}
+.lvl button.on:before{transform:scaleY(1)}
+.lvl button.on b{color:var(--navy)}
+.lvp{border:1px solid var(--line);background:var(--ivory);padding:clamp(24px,3vw,38px);min-height:520px}
+.lp{display:none}
+.lp.on{display:grid;gap:14px;align-content:start;animation:covf .5s var(--ease)}
+.lp small{font:600 10.5px/1.3 Montserrat,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--goldd)}
+.lp h3{font:400 clamp(30px,3vw,38px)/1.05 "Cormorant Garamond",serif;color:var(--navy);margin:0}
+.lp>p{margin:0;color:var(--ink);font-size:15px;line-height:1.6;max-width:62ch}
+.lp .lq{font:600 10.5px/1.3 Montserrat,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--goldd);margin-top:10px}
+.lp ul{list-style:none;margin:0;padding:0;display:grid}
+.lp li{position:relative;padding:14px 0 14px 28px;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;color:var(--ink)}
+.lp li:before{content:"";position:absolute;left:0;top:23px;width:14px;height:1px;background:var(--goldd)}
+.rmx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.rmx div{background:#fff;border:1px solid var(--line);padding:18px 18px 20px;display:grid;gap:8px;align-content:start}
+.rmx b{font:600 12px/1.3 Montserrat,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.rmx span{font-size:14px;line-height:1.5;color:var(--ink)}
+.dx{display:grid;gap:18px;margin-top:6px}
+.dxc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 28px}
+.dxc label{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px;align-items:baseline}
+.dxc label span,.dxs>span{font:600 10.5px/1.3 Montserrat,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+.dxc output{font:500 20px/1 "Cormorant Garamond",serif;color:var(--navy)}
+.dxc input{grid-column:1/-1;width:100%;accent-color:var(--navy);margin:0;cursor:pointer}
+.dxs{display:grid;gap:9px}
+.dxs p{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+.dxs button{font:500 12px/1 Montserrat,sans-serif;color:var(--ink);background:#fff;border:1px solid var(--line);padding:8px 11px;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.dxs button:hover{border-color:var(--goldd)}
+.dxs button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.dxg{background:#fff;border:1px solid var(--line);padding:14px 14px 10px}
+.dxg svg{display:block;width:100%;height:240px;overflow:visible}
+.dxg text{font:500 10px Montserrat,sans-serif;fill:var(--mut)}
+.dxg .ph{font:600 9px Montserrat,sans-serif;letter-spacing:.1em;text-transform:uppercase;fill:var(--goldd)}
+.dxl{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:8px;font:500 11.5px/1.2 Montserrat,sans-serif;color:var(--mut)}
+.dxl span:before{content:"";display:inline-block;width:14px;height:9px;margin-right:8px;vertical-align:-1px}
+.dxl .a:before{background:rgba(0,28,53,.14);border-top:2px solid var(--navy)}
+.dxl .b:before{background:var(--gold)}
+.dxk{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.dxk div{display:grid;gap:8px;padding:16px 12px 0 0}
+.dxk b{font:400 clamp(26px,2.4vw,32px)/1 "Cormorant Garamond",serif;color:var(--navy)}
+.dxk span{font:600 10px/1.35 Montserrat,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--goldd)}
+.lp .dxn{font-size:12px;line-height:1.55;color:var(--mut);max-width:none}
+@media(max-width:1000px){.lvg{grid-template-columns:1fr}.lvl{grid-template-columns:repeat(3,minmax(0,1fr));border-top:0;gap:6px}.lvl button{border:1px solid var(--line);padding:12px;grid-template-columns:1fr;gap:6px}.lvl button.on{padding-left:12px}.lvl button:before{top:auto;left:-1px;right:-1px;bottom:-1px;width:auto;height:3px;transform:scaleX(0)}.lvl button.on:before{transform:scaleX(1)}.lvp{min-height:0}}
+@media(max-width:640px){.lvl{grid-template-columns:repeat(2,minmax(0,1fr))}.lvl i{font-size:20px}.lvl b{font-size:12.5px}.dxc{grid-template-columns:1fr}.dxk{grid-template-columns:repeat(2,minmax(0,1fr))}.rmx{grid-template-columns:1fr}.dxg svg{height:200px}}

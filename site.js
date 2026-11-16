@@ -134,3 +134,38 @@ chips.forEach(function(c){c.addEventListener('click',function(){show(ks.indexOf(
 size();show(0);addEventListener('resize',function(){size();draw(performance.now()+9999)});
 new IntersectionObserver(function(e){on=e[0].isIntersecting}).observe(m);
 if(!rm)setInterval(function(){if(auto&&on&&!d.hidden)show((cur+1)%pins.length)},3600)})})();
+/* ===== v2.9: bankability levers + debt structure explorer ===== */
+(function(){var d=document,$=function(s,c){return Array.prototype.slice.call((c||d).querySelectorAll(s))},NS='http://www.w3.org/2000/svg',lang=d.documentElement.lang||'en';
+var nf=new Intl.NumberFormat(lang,{maximumFractionDigits:1});function f(v){return nf.format(Math.round(v*10)/10)}
+$('.lev').forEach(function(sec){var tb=$('.lvl button',sec),pn=$('.lp',sec);
+function show(i,fo){tb.forEach(function(b,k){var o=k===i;b.classList.toggle('on',o);b.setAttribute('aria-selected',o?'true':'false');b.tabIndex=o?0:-1;pn[k].classList.toggle('on',o)});if(fo)tb[i].focus();if(pn[i]._dr)pn[i]._dr()}
+tb.forEach(function(b,i){var id='lvt'+i,pid='lvp'+i;b.id=id;b.setAttribute('aria-controls',pid);pn[i].id=pid;pn[i].setAttribute('aria-labelledby',id);
+b.addEventListener('click',function(){show(i)});
+b.addEventListener('keydown',function(e){var k=e.key,n=tb.length,j=k==='ArrowRight'||k==='ArrowDown'?(i+1)%n:k==='ArrowLeft'||k==='ArrowUp'?(i+n-1)%n:k==='Home'?0:k==='End'?n-1:-1;if(j>=0){e.preventDefault();show(j,true)}})});
+var cur=tb.map(function(b){return b.classList.contains('on')}).indexOf(true);show(cur<0?0:cur);
+$('.dx',sec).forEach(function(dx){var L=dx.dataset.labels.split('|'),sv=dx.querySelector('svg'),inp=$('input',dx),pb=$('.dxs button',dx),P='e',XM,host=dx.closest('.lp');
+function el(n,a,p){var e=d.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);(p||sv).appendChild(e);return e}
+function val(k){return +inp.filter(function(x){return x.dataset.k===k})[0].value}
+function draw(){var W=sv.clientWidth;if(!W)return;var H=sv.clientHeight,ml=40,mr=8,mt=22,mb=24,pw=W-ml-mr,ph=H-mt-mb;
+var c=val('c'),g=val('g'),r=val('r'),n=Math.round(r*2),w=[],i,s=0;
+inp.forEach(function(x){x.parentNode.querySelector('output').textContent=f(+x.value)+' '+L[3]});
+for(i=1;i<=n;i++){var v=P==='s'?1+2*(i-1)/Math.max(1,n-1):1;w.push(v)}
+if(P==='b'){for(i=0;i<n;i++)w[i]=75/n;w[n-1]+=25}else{for(i=0;i<n;i++)s+=w[i];for(i=0;i<n;i++)w[i]=w[i]/s*100}
+var T0=c+g,T=T0+r;XM=Math.max(9,Math.ceil((T+.5)/3)*3);var X=function(t){return ml+t/XM*pw},Y=function(v){return mt+ph-v/100*ph},YB=function(v){return mt+ph-v/100*ph};
+while(sv.firstChild)sv.removeChild(sv.firstChild);
+el('rect',{x:X(0),y:mt,width:X(c)-X(0),height:ph,fill:'rgba(201,169,97,.14)'});
+if(g>0)el('rect',{x:X(c),y:mt,width:X(T0)-X(c),height:ph,fill:'rgba(201,169,97,.06)'});
+var lb=[[0,L[0]],[c,L[1]],[T0,L[2]]].map(function(q){var t=el('text',{x:X(q[0])+4,y:mt-8,'class':'ph'});t.textContent=q[1];return [X(q[0])+4,t.getComputedTextLength(),t,q[0]]});var ov=function(a,b){return a[0]+a[1]+10>b[0]};if(g<=0||ov(lb[0],lb[1])||ov(lb[1],lb[2]))sv.removeChild(lb[1][2]);if(ov(lb[0],lb[2]))sv.removeChild(lb[0][2]);
+for(i=0;i<=XM;i+=3){el('line',{x1:X(i),x2:X(i),y1:mt+ph,y2:mt+ph+4,stroke:'#DAD3C3'});var t=el('text',{x:X(i),y:H-6,'text-anchor':'middle'});t.textContent=i}
+var yt=el('text',{x:ml-8,y:H-6,'text-anchor':'end'});yt.textContent=L[4];
+[0,50,100].forEach(function(v){el('line',{x1:ml,x2:W-mr,y1:Y(v),y2:Y(v),stroke:v?'#EEE9DD':'#DAD3C3'});var t=el('text',{x:ml-6,y:Y(v)+3,'text-anchor':'end'});t.textContent=v+'%'});
+var bw=Math.max(2,pw/XM*.5*.62),o=100,pts=[[0,0],[c,100],[T0,100]],a=c*50+g*100;
+for(i=0;i<n;i++){var tt=T0+(i+1)*.5;el('rect',{x:X(tt)-bw/2,y:YB(w[i]),width:bw,height:mt+ph-YB(w[i]),fill:'#C9A961'});a+=o*.5;pts.push([tt,o]);o-=w[i];if(o<1e-9)o=0;pts.push([tt,o])}
+var dpath='M'+pts.map(function(p){return X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1)}).join('L');
+el('path',{d:dpath+'L'+X(T).toFixed(1)+','+Y(0)+'L'+X(0)+','+Y(0)+'Z',fill:'rgba(0,28,53,.12)'});
+el('path',{d:dpath,fill:'none',stroke:'#001C35','stroke-width':1.6,'stroke-linejoin':'round'});
+var K={t:f(T)+' '+L[3],f:f(T0+.5)+' '+L[3],w:f(a/100)+' '+L[3],m:f(Math.max.apply(null,w))+'%'};
+for(var k in K)dx.querySelector('[data-o="'+k+'"]').textContent=K[k]}
+inp.forEach(function(x){x.addEventListener('input',draw)});
+pb.forEach(function(b){b.setAttribute('aria-pressed',b.classList.contains('on')?'true':'false');b.addEventListener('click',function(){P=b.dataset.p;pb.forEach(function(q){var o=q===b;q.classList.toggle('on',o);q.setAttribute('aria-pressed',o?'true':'false')});draw()})});
+host._dr=draw;addEventListener('resize',draw);draw()})})})();
