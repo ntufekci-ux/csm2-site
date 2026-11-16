@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /v3/
+Disallow: /_src/
+
+Sitemap: https://csm2finance.com/sitemap.xml
