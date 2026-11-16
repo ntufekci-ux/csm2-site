@@ -112,7 +112,9 @@ it.forEach(function(x,i){var b=x.querySelector('button');b.addEventListener('cli
 for(var r=0;r<71;r++){var lat=83-2*r;for(var c=0;c<180;c++){if(+LD.charAt(r*180+c))PT.push([-179+2*c,lat])}}
 var rm=matchMedia('(prefers-reduced-motion: reduce)').matches,HUB=[55.3,25.2],SS=d.querySelector('script[src$="site.js"]'),BS=SS?SS.getAttribute('src').replace(/site\.js.*$/,''):'';
 $('.cov').forEach(function(sec){var m=sec.querySelector('.covm');if(!m)return;var w=m.dataset.win.split(',').map(Number),cv=d.createElement('canvas');m.insertBefore(cv,m.firstChild);
-var pins=$('.pin',m),chips=$('.covl button',sec),P=sec.querySelector('.covp'),ks=pins.map(function(p){return p.dataset.k}),cur=-1,auto=!rm,on=false,t0=0,raf=0,W,H,x,R;
+var pins=$('.pin',m),chips=$('.covl button',sec),P=sec.querySelector('.covp'),ks=pins.map(function(p){return p.dataset.k}),cur=-1,auto=!rm,on=false,t0=0,raf=0,W,H,x,R,F='a',fb=$('.covf button',sec),cn=$('.covs b',sec);
+function vis(i){return F==='a'||pins[i].dataset.g===F}
+function nxt(i){for(var j=1;j<=pins.length;j++){var q=(i+j)%pins.length;if(vis(q))return q}return -1}
 pins.forEach(function(p){var l=p.dataset.ll.split(',').map(Number);p.style.left=(l[0]-w[0])/(w[1]-w[0])*100+'%';p.style.top=(w[2]-l[1])/(w[2]-w[3])*100+'%'});
 function size(){W=m.clientWidth;H=W*(w[2]-w[3])/(w[1]-w[0]);var q=Math.min(2,devicePixelRatio||1);cv.width=W*q;cv.height=H*q;cv.style.height=H+'px';x=cv.getContext('2d');x.setTransform(q,0,0,q,0,0);R=Math.max(1,W/(w[1]-w[0])*.62)}
 function draw(t){if(!W)return;var sx=W/(w[1]-w[0]),i,p;x.clearRect(0,0,W,H);x.fillStyle='rgba(0,28,53,.48)';
@@ -127,13 +129,19 @@ function show(i,user){if(user)auto=false;if(i<0||i===cur)return;cur=i;var p=pins
 pins.forEach(function(q,j){q.classList.toggle('on',j===i);q.setAttribute('aria-pressed',j===i?'true':'false')});
 chips.forEach(function(c){var o=c.dataset.k===k;c.classList.toggle('on',o);c.setAttribute('aria-pressed',o?'true':'false')});
 P.querySelector('small').textContent=ch?ch.parentNode.parentNode.querySelector('b').textContent:'';P.querySelector('h3').textContent=p.textContent;
+var tg=P.querySelector('.covt'),fbt=fb.filter(function(b){return b.dataset.f===p.dataset.g})[0];if(tg){tg.dataset.g=p.dataset.g||'';tg.textContent=fbt?fbt.textContent:''}
 P.querySelector('ul').innerHTML=names.map(function(s,n){return '<li><span class="lgo"><img src="'+BS+'img/cov-'+k+'-'+n+'.webp" alt=""></span><span>'+s.replace(/</g,'&lt;')+'</span></li>'}).join('');
 P.classList.remove('sw');void P.offsetWidth;P.classList.add('sw');t0=performance.now();if(!raf)raf=requestAnimationFrame(loop)}
 pins.forEach(function(p,i){p.addEventListener('click',function(){show(i,true)})});
 chips.forEach(function(c){c.addEventListener('click',function(){show(ks.indexOf(c.dataset.k),true);if(innerWidth<1001){var r=P.getBoundingClientRect();if(r.top<70||r.bottom>innerHeight)P.scrollIntoView({behavior:rm?'auto':'smooth',block:'center'})}})});
 size();show(0);addEventListener('resize',function(){size();draw(performance.now()+9999)});
 new IntersectionObserver(function(e){on=e[0].isIntersecting}).observe(m);
-if(!rm)setInterval(function(){if(auto&&on&&!d.hidden)show((cur+1)%pins.length)},3600)})})();
+fb.forEach(function(b){b.addEventListener('click',function(){F=b.dataset.f;fb.forEach(function(q){var o=q===b;q.classList.toggle('on',o);q.setAttribute('aria-pressed',o?'true':'false')});
+var nc=0,ni=0;pins.forEach(function(q,i){var v=vis(i);q.classList.toggle('off',!v);q.tabIndex=v?0:-1;if(v){nc++;ni+=q.dataset.n.split('|').length}});
+chips.forEach(function(c){var v=F==='a'||c.dataset.g===F;c.classList.toggle('off',!v);c.disabled=!v});
+if(cn.length>1){cn[0].textContent=nc;cn[1].textContent=ni}
+if(!vis(cur)){var j=nxt(cur);cur=-1;show(j)}})});
+if(!rm)setInterval(function(){if(auto&&on&&!d.hidden)show(nxt(cur))},3600)})})();
 /* ===== v2.9: bankability levers + debt structure explorer ===== */
 (function(){var d=document,$=function(s,c){return Array.prototype.slice.call((c||d).querySelectorAll(s))},NS='http://www.w3.org/2000/svg',lang=d.documentElement.lang||'en';
 var nf=new Intl.NumberFormat(lang,{maximumFractionDigits:1});function f(v){return nf.format(Math.round(v*10)/10)}
