@@ -36,11 +36,11 @@ body.v4 .ph .orn{display:none}
 body.v4 .ph .wrap{position:relative;z-index:1}
 body.v4 .ph h1{font-weight:600}
 body.v4 .ph .lead{color:#E6ECF2}
-body.v4[data-p=services] .ph{background-image:url(img/sv-4.webp)}
-body.v4[data-p=fasttrack] .ph{background-image:url(img/sv-2.webp)}
-body.v4[data-p=experience] .ph{background-image:url(img/split-1.webp)}
-body.v4[data-p=solutions] .ph{background-image:url(img/cta.webp)}
-body.v4[data-p=contact] .ph{background-image:url(img/hero-0.webp)}
+body.v4[data-p=services] .ph{background-image:url(img/svc-header.webp)}
+body.v4[data-p=fasttrack] .ph{background-image:url(img/ft-header.webp)}
+body.v4[data-p=experience] .ph{background-image:url(img/exp-header.webp)}
+body.v4[data-p=solutions] .ph{background-image:url(img/sol-header.webp)}
+body.v4[data-p=contact] .ph{background-image:url(img/contact-header.webp)}
 body.v4[data-p=insights] .ph{background-image:url(img/ins-2.webp)}
 /* cards a little softer */
 body.v4 .card{border-radius:6px}
@@ -49,3 +49,10 @@ body.v4 .ft{background:#00122A}
 body.v4 .ft img{height:62px}
 @media(max-width:1000px){body.v4 .ph{padding:150px 0 80px}}
 @media(max-width:640px){body.v4 .hd img{height:44px}body.v4 .lang{display:none}}
+/* section photos added in v4 */
+body.v4 .secpic{margin:0 0 clamp(32px,4vw,52px);border-radius:6px;overflow:hidden;box-shadow:0 18px 44px -24px rgba(0,28,53,.45)}
+body.v4 .secpic img{display:block;width:100%;height:auto;aspect-ratio:1600/760;object-fit:cover}
+body.v4 .secpic.r43{margin:28px 0 0}body.v4 .secpic.r43 img{aspect-ratio:4/3}
+body.v4 .card .cimg{margin:0 0 22px;border-radius:4px;overflow:hidden}
+body.v4 .card .cimg img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+body.v4 .card:hover .cimg img{transform:scale(1.05)}
