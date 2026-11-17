@@ -294,3 +294,5 @@ body.open .menu{opacity:1;pointer-events:auto}
 @media(max-width:640px){.wrap{padding:0 20px}.hd .hi{padding:10px 20px}.hd .logo img{height:44px}.lang{display:none}.cards,.ins{grid-template-columns:1fr}.secg{gap:10px}.sec h3{font-size:15px;left:12px;right:12px;bottom:12px}.team{grid-template-columns:repeat(2,minmax(0,1fr))}.hero .wrap{padding-top:120px;padding-bottom:110px}.hero .dots{right:20px;bottom:60px}.ftl2{grid-template-columns:1fr}.stats .wrap{transform:translateY(-30px)}.stat{padding:22px 18px}.ft .g{grid-template-columns:1fr}.split2 .pic .badge{left:12px;bottom:12px;padding:14px 16px}}
 .cov .note,.cov .disc{margin-top:28px;font-size:14px;line-height:1.6;color:var(--soft)}
 .cov{overflow:hidden}
+.split2 .pic .badge{bottom:auto;top:24px}
+@media(max-width:640px){.split2 .pic .badge{top:12px}}
