@@ -590,3 +590,15 @@ html:not([lang=en]) svg .tt{letter-spacing:.07em}
 @media(max-width:1000px){.tier{grid-template-columns:50px minmax(0,1fr)}.tier .tm{grid-column:2;text-align:left;padding-top:0}.ddn{grid-template-columns:1fr}}
 @media(max-width:640px){.svc .du{position:static;max-width:none;text-align:left;margin:-20px 0 14px}.tier{padding:24px 0;gap:16px}.tier.prem{padding:24px 16px}}
 @media(min-width:1001px){.hd nav{gap:clamp(14px,1.8vw,26px)}.hd nav a{letter-spacing:.15em}.hd .hi{gap:20px}}
+/* ===== v2.13: back-to-top button ===== */
+.totop{position:fixed;right:28px;bottom:28px;z-index:60;width:52px;height:52px;padding:0;border:0;border-radius:50%;background:var(--navy);color:var(--gold);cursor:pointer;box-shadow:0 10px 28px rgba(0,18,42,.28);opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .4s var(--ease),transform .4s var(--ease),visibility 0s .4s,background .3s}
+.totop.on{opacity:1;visibility:visible;transform:none;transition:opacity .4s var(--ease),transform .4s var(--ease),visibility 0s,background .3s}
+.totop svg{width:100%;height:100%;display:block;fill:none}
+.totop .ttr{stroke:rgba(201,169,97,.22);stroke-width:1.5}
+.totop .ttq{stroke:var(--gold);stroke-width:1.5;stroke-dasharray:138.2;stroke-dashoffset:138.2;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .15s linear}
+.totop path{stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s var(--ease)}
+.totop:hover{background:var(--deep)}.totop:hover path{transform:translateY(-2px)}
+.totop:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+body.open .totop{opacity:0;visibility:hidden}
+@media(max-width:640px){.totop{right:16px;bottom:16px;width:46px;height:46px}}
+@media print{.totop{display:none}}
