@@ -56,3 +56,6 @@ body.v4 .secpic.r43{margin:28px 0 0}body.v4 .secpic.r43 img{aspect-ratio:4/3}
 body.v4 .card .cimg{margin:0 0 22px;border-radius:4px;overflow:hidden}
 body.v4 .card .cimg img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
 body.v4 .card:hover .cimg img{transform:scale(1.05)}
+/* header CTA: keep "Imagine With Us" visible on inner pages, same breakpoints as the v4 home (burger at 1100px and below) */
+@media(min-width:1101px){body.v4 .hd .btn{display:inline-flex}}
+@media(min-width:1001px) and (max-width:1100px){body.v4 .hd nav,body.v4 .hd .btn{display:none}body.v4 .burger{display:block}}
