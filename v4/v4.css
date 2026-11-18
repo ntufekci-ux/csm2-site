@@ -416,3 +416,15 @@ body.open .totop{opacity:0;visibility:hidden}
 @media(min-width:1001px) and (max-width:1240px){.seg button{padding:14px 12px;font-size:11px;letter-spacing:.08em}}
 @media(max-width:1000px){.rdy .wrap,.xpb .wrap,.mth .mh{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:700px){.seg button{white-space:normal;line-height:1.25}}
+/* v4.2: page headers for v4.css pages, sectors page, 7-person team */
+.hd nav a.on{color:var(--gold)}.hd nav a.on:after{transform:scaleX(1)}
+.phd{background:var(--navy) center/cover no-repeat;color:#fff;padding:200px 0 110px}
+.phd:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,18,42,.9) 0%,rgba(0,28,53,.66) 48%,rgba(0,28,53,.2) 100%)}
+.phd .wrap{position:relative;z-index:1;display:grid;gap:20px}
+.phd h1{color:#fff;max-width:18ch}.phd .lead{color:#E6ECF2}.phd .eyebrow{color:var(--gold3)}
+.secg.big{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.secg.big .sec{aspect-ratio:16/10}
+.secg.big .sec h3{font-size:clamp(19px,1.8vw,26px)}
+.team{grid-template-columns:repeat(7,minmax(0,1fr));gap:18px}
+@media(max-width:1000px){.phd{padding:150px 0 80px}.team{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:640px){.secg.big{grid-template-columns:1fr}.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
