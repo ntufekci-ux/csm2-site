@@ -84,3 +84,4 @@ body.v4 .rdyp{background:#001C35 url(img/rdy-bg.webp) center/cover no-repeat;pos
 body.v4 .rdyp:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,18,42,.95) 0%,rgba(0,28,53,.88) 46%,rgba(0,28,53,.76) 100%)}
 body.v4 .rdyp .wrap{position:relative;z-index:1}
 body.v4 #method .secpic img{aspect-ratio:1600/700}
+body.v4 #coverage{overflow-x:clip}

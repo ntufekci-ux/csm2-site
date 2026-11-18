@@ -491,3 +491,16 @@ body.open .totop{opacity:0;visibility:hidden}
 .crew-p h3{color:var(--navy);font-weight:600}
 .cm b{font-family:Montserrat,sans-serif;font-weight:600;color:var(--navy)}
 #team .head{margin-bottom:clamp(32px,4vw,48px)}
+/* ===== v4.4: FAQ (home, end of page) ===== */
+.faqw{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(36px,6vw,90px);align-items:start}
+.faqw .head{margin:0;position:sticky;top:110px}
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;font:600 18px/1.35 Montserrat,sans-serif;color:var(--navy)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"";flex:none;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--gold);background:linear-gradient(var(--gold),var(--gold)) center/12px 1.5px no-repeat,linear-gradient(var(--gold),var(--gold)) center/1.5px 12px no-repeat;transition:transform .3s var(--ease)}
+.faq details[open] summary:after{transform:rotate(45deg)}
+.faq summary:hover{color:var(--blue)}
+.faq details p{padding:0 48px 24px 0;color:var(--mut);font-size:16.5px;line-height:1.65;max-width:68ch}
+@media(max-width:1000px){.faqw{grid-template-columns:1fr}.faqw .head{position:static}}
+@media(max-width:640px){.faq summary{font-size:16px}.faq details p{padding-right:0}}
